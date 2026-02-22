@@ -1,0 +1,177 @@
+{
+  "kind": "build_request",
+  "title": "Create dynamic portfolio website with AI assistant and Salesforce integration",
+  "projectName": "Salesforce Portfolio",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a home page with a dynamic introduction section displaying user profile picture, name, title (Salesforce Senior Engineer), and professional bio. Content must be editable through a content management interface.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Where in the home page I will show my introduction with my picture",
+          "make every thing dymanic so I can change the image, name, edit the content"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile picture is displayed prominently on home page",
+        "Name and title are clearly visible",
+        "Professional bio from user details is rendered with proper formatting",
+        "All content (name, title, bio, picture) can be edited through admin interface"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement an achievements section that displays awards with pictures and descriptions. Each achievement entry must support an image upload and descriptive text, with ability to add, edit, and delete achievements dynamically.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "there should be a achievement section so that I can showcase my achievement with picture of award",
+          "give me the flexibility of modifying the site"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Achievements section displays multiple award entries with images and descriptions",
+        "Admin interface allows adding new achievements",
+        "Existing achievements can be edited or deleted",
+        "Images for achievements can be uploaded and managed"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a contact form with fields for name, email, message, and any other relevant contact information. Form submissions must be stored in the backend and integrated with Salesforce via REST API to persist contact data in Salesforce CRM.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "if people wants to connect with me they can fill the form, contact me section should be included",
+          "I will integrate this website to salesforce to store some data"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form is accessible with clear input fields",
+        "Form data is validated before submission",
+        "Submissions are stored in backend",
+        "Backend integrates with Salesforce REST API to create contact/lead records",
+        "User receives confirmation after successful submission"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a blog section with capability to create, edit, and display blog posts. Each post should support title, content, publication date, and optional featured image. Blog posts must be manageable through the content management interface.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "In future I may do some blog"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Blog listing page displays all published posts with titles and excerpts",
+        "Individual blog post pages show full content with formatting",
+        "Admin interface allows creating new blog posts",
+        "Blog posts can be edited and deleted",
+        "Featured images can be added to blog posts"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create an AI assistant chatbot interface positioned in the bottom right corner of the screen with a custom name and avatar image. The chatbot must display an animated greeting ('Hi, How can I help you?' with waving hands emoji or animation) when a user first visits the page. The chat interface must be designed to integrate with Salesforce Agentforce API for handling user queries.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "add a ai assistant chat screen which will be integrated with salesforce agentforce",
+          "give a ai a name and pic in the right side down of the screen",
+          "Once people vists my page it has to say hi, How can I help you with showing the hands"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Chat widget appears in bottom right corner with custom AI avatar and name",
+        "Greeting message with waving animation appears automatically on first visit",
+        "Chat interface allows users to type and send messages",
+        "Backend connects to Salesforce Agentforce REST API to process queries",
+        "AI responses from Agentforce are displayed in the chat interface",
+        "AI name and avatar image can be customized through admin interface"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build a comprehensive content management system (CMS) that allows dynamic editing of all site content including profile information, achievements, blog posts, AI assistant settings, and custom sections. The CMS must support adding new content sections beyond the initial setup.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "make every thing dymanic so I can change the image, name, edit the content, adding section, give me the flexibility of modifying the site",
+          "in future I can modify the code and design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin dashboard provides access to all editable content",
+        "Profile section (name, title, bio, picture) is fully editable",
+        "Achievements can be added, edited, and deleted with image uploads",
+        "Blog posts can be created, edited, and deleted",
+        "AI assistant name and avatar are customizable",
+        "New custom sections can be added to the site through the CMS",
+        "Changes are immediately reflected on the public site"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Design the frontend with a vibrant, dynamic, and modern aesthetic that avoids simplicity. Implement a cohesive visual theme with bold colors, engaging animations, smooth transitions, and contemporary typography that reflects a tech-forward professional portfolio. Ensure the design is responsive across all devices.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "the page should not be simple it has to be dynamic",
+          "make UI colourful"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Site uses a vibrant color palette with multiple accent colors",
+        "Smooth animations and transitions enhance user experience",
+        "Modern typography and layout patterns are implemented",
+        "Responsive design works seamlessly on mobile, tablet, and desktop",
+        "Visual design feels dynamic and engaging without being overwhelming"
+      ]
+    }
+  ],
+  "constraints": [
+    "AI assistant must integrate specifically with Salesforce Agentforce API, not generic LLM services",
+    "Contact form data must be stored in Salesforce CRM via REST API integration",
+    "All content must be dynamically editable without requiring code changes"
+  ],
+  "nonGoals": [
+    "Building a custom CRM system (using Salesforce integration instead)",
+    "Implementing email notification services for form submissions",
+    "Creating a multi-user authentication system for the CMS",
+    "Supporting real-time chat features beyond the AI assistant"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Professional portrait photo of a Salesforce engineer for profile picture, corporate style, well-lit (profile-picture.dim_400x400.png)",
+      "Friendly AI assistant avatar with a modern tech aesthetic for chatbot interface (ai-assistant-avatar.dim_200x200.png)",
+      "Waving hand emoji or animated illustration for chatbot greeting (wave-hand.dim_64x64.png)",
+      "Sample achievement award trophy or certificate image as placeholder for achievements section (achievement-placeholder.dim_600x400.png)",
+      "Hero section background with abstract tech pattern, vibrant gradients suggesting innovation and technology (hero-background.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}

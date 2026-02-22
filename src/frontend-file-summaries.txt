@@ -1,0 +1,7 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, theme provider, and all route definitions for the portfolio website including public and admin pages.",
+  "frontend/src/pages/BlogPage.tsx": "Blog listing page that displays all blog posts in a grid with navigation using useNavigate hook instead of Link component for dynamic routes.",
+  "frontend/src/pages/admin/EditIntroduction.tsx": "Admin page for editing the introduction section with profile picture upload, name, title, and bio fields using correct import path for ExternalBlob.",
+  "frontend/src/pages/admin/ContactSubmissions.tsx": "Admin page displaying all contact form submissions with name, email, message, timestamp, and Salesforce sync status.",
+  "frontend/src/pages/admin/CMSSettings.tsx": "Admin page for configuring CMS settings including theme, layout options, and custom section ordering."
+}

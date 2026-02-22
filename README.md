@@ -1,2 +1,3 @@
-# portfolio-website_47
-Exported from Caffeine project: Portfolio Website
+## Portfolio Website
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

@@ -1,0 +1,175 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-home-page-with-a-dynamic-introduction-section-displaying-user-profile-picture-name-title-salesforce-senior-engineer-and-professional-bio-content-must-be-editable-through-a-content-management-interface",
+      "featureTitle": "Create a home page with a dynamic introduction section displaying user profile picture, name, title (Salesforce Senior Engineer), and professional bio. Content must be editable through a content management interface.",
+      "files": [
+        "frontend/src/components/IntroductionDisplay.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/admin/EditIntroduction.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-an-achievements-section-that-displays-awards-with-pictures-and-descriptions-each-achievement-entry-must-support-an-image-upload-and-descriptive-text-with-ability-to-add-edit-and-delete-achievements-dynamically",
+      "featureTitle": "Implement an achievements section that displays awards with pictures and descriptions. Each achievement entry must support an image upload and descriptive text, with ability to add, edit, and delete achievements dynamically.",
+      "files": [
+        "frontend/src/components/AchievementForm.tsx",
+        "frontend/src/components/AchievementsSection.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/admin/ManageAchievements.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-form-with-fields-for-name-email-message-and-any-other-relevant-contact-information-form-submissions-must-be-stored-in-the-backend-and-integrated-with-salesforce-via-rest-api-to-persist-contact-data-in-salesforce-crm",
+      "featureTitle": "Create a contact form with fields for name, email, message, and any other relevant contact information. Form submissions must be stored in the backend and integrated with Salesforce via REST API to persist contact data in Salesforce CRM.",
+      "files": [
+        "frontend/src/components/ContactForm.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/admin/ContactSubmissions.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-blog-section-with-capability-to-create-edit-and-display-blog-posts-each-post-should-support-title-content-publication-date-and-optional-featured-image-blog-posts-must-be-manageable-through-the-content-management-interface",
+      "featureTitle": "Implement a blog section with capability to create, edit, and display blog posts. Each post should support title, content, publication date, and optional featured image. Blog posts must be manageable through the content management interface.",
+      "files": [
+        "frontend/src/components/BlogPostForm.tsx",
+        "frontend/src/pages/BlogPage.tsx",
+        "frontend/src/pages/BlogPostPage.tsx",
+        "frontend/src/pages/admin/ManageBlogPosts.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-ai-assistant-chatbot-interface-positioned-in-the-bottom-right-corner-of-the-screen-with-a-custom-name-and-avatar-image-the-chatbot-must-display-an-animated-greeting-hi-how-can-i-help-you-with-waving-hands-emoji-or-animation-when-a-user-first-visits-the-page-the-chat-interface-must-be-designed-to-integrate-with-salesforce-agentforce-api-for-handling-user-queries",
+      "featureTitle": "Create an AI assistant chatbot interface positioned in the bottom right corner of the screen with a custom name and avatar image. The chatbot must display an animated greeting ('Hi, How can I help you?' with waving hands emoji or animation) when a user first visits the page. The chat interface must be designed to integrate with Salesforce Agentforce API for handling user queries.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ChatWidget.tsx",
+        "frontend/src/pages/admin/EditAISettings.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-comprehensive-content-management-system-cms-that-allows-dynamic-editing-of-all-site-content-including-profile-information-achievements-blog-posts-ai-assistant-settings-and-custom-sections-the-cms-must-support-adding-new-content-sections-beyond-the-initial-setup",
+      "featureTitle": "Build a comprehensive content management system (CMS) that allows dynamic editing of all site content including profile information, achievements, blog posts, AI assistant settings, and custom sections. The CMS must support adding new content sections beyond the initial setup.",
+      "files": [
+        "frontend/src/components/CustomSectionForm.tsx",
+        "frontend/src/components/CustomSectionsDisplay.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/admin/AdminDashboard.tsx",
+        "frontend/src/pages/admin/CMSSettings.tsx",
+        "frontend/src/pages/admin/ManageCustomSections.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-the-frontend-with-a-vibrant-dynamic-and-modern-aesthetic-that-avoids-simplicity-implement-a-cohesive-visual-theme-with-bold-colors-engaging-animations-smooth-transitions-and-contemporary-typography-that-reflects-a-tech-forward-professional-portfolio-ensure-the-design-is-responsive-across-all-devices",
+      "featureTitle": "Design the frontend with a vibrant, dynamic, and modern aesthetic that avoids simplicity. Implement a cohesive visual theme with bold colors, engaging animations, smooth transitions, and contemporary typography that reflects a tech-forward professional portfolio. Ensure the design is responsive across all devices.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/HeroSection.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/Navigation.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

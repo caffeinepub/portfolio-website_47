@@ -1,0 +1,294 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Dynamic Portfolio Website with AI Assistant Frontend",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create dynamic home page introduction section with editable profile content",
+      "acceptanceCriteria": [
+        "Profile picture is displayed prominently on home page",
+        "Name and title are clearly visible",
+        "Professional bio from user details is rendered with proper formatting",
+        "All content (name, title, bio, picture) can be edited through admin interface"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create home page component that fetches and displays the introduction section using getIntroduction() from backend. Display profile picture using ExternalBlob.getDirectURL(), name, title, and bio with proper formatting. Wire the generated profile picture from frontend/public/assets/generated/profile-picture.dim_400x400.png as a fallback or initial asset. Use the authorization component to verify user permissions before showing edit controls."
+        },
+        {
+          "path": "frontend/src/components/IntroductionDisplay.tsx",
+          "operation": "create",
+          "description": "Create component to render the introduction section with profile image (using ExternalBlob.getDirectURL() if available), name, title, and formatted bio text. Include smooth animations for content appearance and modern typography as per design requirements."
+        },
+        {
+          "path": "frontend/src/hooks/useIntroduction.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch introduction data using getIntroduction() backend method. Handle loading states and cache management."
+        },
+        {
+          "path": "frontend/src/pages/admin/EditIntroduction.tsx",
+          "operation": "create",
+          "description": "Create admin page for editing introduction section. Use blob-storage component for profile image upload via ExternalBlob.fromBytes(). Call updateIntroduction() to save changes. Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement achievements section with dynamic CRUD operations and image support",
+      "acceptanceCriteria": [
+        "Achievements section displays multiple award entries with images and descriptions",
+        "Admin interface allows adding new achievements",
+        "Existing achievements can be edited or deleted",
+        "Images for achievements can be uploaded and managed"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AchievementsSection.tsx",
+          "operation": "create",
+          "description": "Create component to display achievements grid/list fetched via getAchievements(). Each achievement shows image using ExternalBlob.getDirectURL() if available, title, description, and date. Wire the generated achievement placeholder from frontend/public/assets/generated/achievement-placeholder.dim_600x400.png as fallback image. Include engaging animations for card entries as per design requirements."
+        },
+        {
+          "path": "frontend/src/hooks/useAchievements.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch achievements using getAchievements(). Include mutations for addAchievement(), updateAchievement(), and deleteAchievement() with optimistic updates and cache invalidation."
+        },
+        {
+          "path": "frontend/src/pages/admin/ManageAchievements.tsx",
+          "operation": "create",
+          "description": "Create admin page for managing achievements with list view and action buttons. Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AchievementForm.tsx",
+          "operation": "create",
+          "description": "Create form component for adding/editing achievements with fields for title, description, date, and image upload. Use blob-storage component for image handling via ExternalBlob.fromBytes() with upload progress tracking using withUploadProgress(). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add AchievementsSection component to home page layout below the introduction section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create contact form with Salesforce integration for lead capture",
+      "acceptanceCriteria": [
+        "Contact form is accessible with clear input fields",
+        "Form data is validated before submission",
+        "Submissions are stored in backend",
+        "Backend integrates with Salesforce REST API to create contact/lead records",
+        "User receives confirmation after successful submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ContactForm.tsx",
+          "operation": "create",
+          "description": "Create contact form component with fields for name, email, and message. Implement client-side validation. Call submitContactForm() on submission. Show success confirmation message after successful submission. Include smooth transitions and modern form styling as per design requirements."
+        },
+        {
+          "path": "frontend/src/hooks/useContactForm.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook for submitting contact form using submitContactForm() backend method. Handle loading states, success, and error cases."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create dedicated contact page that renders ContactForm component with engaging layout and design."
+        },
+        {
+          "path": "frontend/src/pages/admin/ContactSubmissions.tsx",
+          "operation": "create",
+          "description": "Create admin page to view submitted contact forms using getContactForms(). Display submission list with name, email, message, timestamp, and Salesforce ID if synced. Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement blog section with full content management capabilities",
+      "acceptanceCriteria": [
+        "Blog listing page displays all published posts with titles and excerpts",
+        "Individual blog post pages show full content with formatting",
+        "Admin interface allows creating new blog posts",
+        "Blog posts can be edited and deleted",
+        "Featured images can be added to blog posts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BlogPage.tsx",
+          "operation": "create",
+          "description": "Create blog listing page that fetches and displays all blog posts using getBlogPosts(). Show post titles, excerpts (first 200 chars of content), publication dates, and featured images using ExternalBlob.getDirectURL(). Include smooth card animations and modern grid layout as per design requirements."
+        },
+        {
+          "path": "frontend/src/pages/BlogPostPage.tsx",
+          "operation": "create",
+          "description": "Create individual blog post page that displays full post content with featured image, title, publication date, and formatted content. Fetch post data from getBlogPosts() and filter by post ID from route params."
+        },
+        {
+          "path": "frontend/src/hooks/useBlogPosts.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch blog posts using getBlogPosts(). Include mutations for addBlogPost(), updateBlogPost(), and deleteBlogPost() with cache management."
+        },
+        {
+          "path": "frontend/src/pages/admin/ManageBlogPosts.tsx",
+          "operation": "create",
+          "description": "Create admin page for managing blog posts with list view and CRUD action buttons. Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/BlogPostForm.tsx",
+          "operation": "create",
+          "description": "Create form component for creating/editing blog posts with fields for title, content (rich text or textarea), publication date, and optional featured image upload. Use blob-storage component for image handling via ExternalBlob.fromBytes(). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create AI assistant chatbot interface with Salesforce Agentforce integration",
+      "acceptanceCriteria": [
+        "Chat widget appears in bottom right corner with custom AI avatar and name",
+        "Greeting message with waving animation appears automatically on first visit",
+        "Chat interface allows users to type and send messages",
+        "Backend connects to Salesforce Agentforce REST API to process queries",
+        "AI responses from Agentforce are displayed in the chat interface",
+        "AI name and avatar image can be customized through admin interface"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatWidget.tsx",
+          "operation": "create",
+          "description": "Create floating chat widget component positioned in bottom right corner. Fetch AI settings using getAiSettings() to display bot name and avatar image via ExternalBlob.getDirectURL(). Wire the generated AI assistant avatar from frontend/public/assets/generated/ai-assistant-avatar.dim_200x200.png as fallback. Display initial greeting with waving hand animation using frontend/public/assets/generated/wave-hand.dim_64x64.png on first visit (track with localStorage). Include smooth expand/collapse animations and modern chat UI styling."
+        },
+        {
+          "path": "frontend/src/components/ChatInterface.tsx",
+          "operation": "create",
+          "description": "Create chat message interface with message history display, input field, and send button. Handle message sending and receiving. Include typing indicators and smooth message animations as per design requirements."
+        },
+        {
+          "path": "frontend/src/hooks/useAISettings.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch public AI settings using getAiSettings() for bot name, avatar, and initial greeting."
+        },
+        {
+          "path": "frontend/src/hooks/useChatMessages.ts",
+          "operation": "create",
+          "description": "Create hook to manage chat message state and handle communication with backend for AI query processing. Note: Backend will handle Salesforce Agentforce API integration via http-outcalls component."
+        },
+        {
+          "path": "frontend/src/pages/admin/EditAISettings.tsx",
+          "operation": "create",
+          "description": "Create admin page for editing AI assistant settings including bot name, avatar image upload, and initial greeting message. Use getFullAiSettings() and updateAiSettings(). Use blob-storage component for avatar image upload via ExternalBlob.fromBytes(). Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add ChatWidget component to main App layout so it appears on all pages in bottom right corner."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build comprehensive CMS dashboard for managing all site content",
+      "acceptanceCriteria": [
+        "Admin dashboard provides access to all editable content",
+        "Profile section (name, title, bio, picture) is fully editable",
+        "Achievements can be added, edited, and deleted with image uploads",
+        "Blog posts can be created, edited, and deleted",
+        "AI assistant name and avatar are customizable",
+        "New custom sections can be added to the site through the CMS",
+        "Changes are immediately reflected on the public site"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/admin/AdminDashboard.tsx",
+          "operation": "create",
+          "description": "Create admin dashboard landing page with navigation cards/links to all admin management pages: EditIntroduction, ManageAchievements, ManageBlogPosts, EditAISettings, ManageCustomSections, ContactSubmissions, and CMS Settings. Display site statistics using getSiteStats(). Use the authorization component to restrict access to admin users only. Include modern card layout with engaging hover animations as per design requirements. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/ManageCustomSections.tsx",
+          "operation": "create",
+          "description": "Create admin page for managing custom content sections using getContentSections(), addContentSection(), updateContentSection(), and deleteContentSection(). Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/CustomSectionForm.tsx",
+          "operation": "create",
+          "description": "Create form component for adding/editing custom sections with fields for title, content, and optional image. Use blob-storage component for image upload via ExternalBlob.fromBytes(). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/CMSSettings.tsx",
+          "operation": "create",
+          "description": "Create admin page for editing CMS settings including theme, layout options, and custom section ordering using getCmsSettings() and updateCmsSettings(). Use the authorization component to restrict access to admin users only. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useCustomSections.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch and manage custom content sections using getContentSections() with mutations for add, update, and delete operations."
+        },
+        {
+          "path": "frontend/src/hooks/useCMSSettings.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch and update CMS settings using getCmsSettings() and updateCmsSettings()."
+        },
+        {
+          "path": "frontend/src/components/CustomSectionsDisplay.tsx",
+          "operation": "create",
+          "description": "Create component to render custom content sections on public pages. Fetch sections using getContentSections() and display based on CMS settings order. Include smooth transitions and modern styling."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add CustomSectionsDisplay component to home page to render dynamically added custom sections below achievements."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement vibrant, dynamic, and modern design system across the application",
+      "acceptanceCriteria": [
+        "Site uses a vibrant color palette with multiple accent colors",
+        "Smooth animations and transitions enhance user experience",
+        "Modern typography and layout patterns are implemented",
+        "Responsive design works seamlessly on mobile, tablet, and desktop",
+        "Visual design feels dynamic and engaging without being overwhelming"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with vibrant color palette using CSS custom properties. Define multiple accent colors (primary, secondary, tertiary) with bold, saturated values. Add smooth transition utilities and animation keyframes for engaging micro-interactions. Ensure hero background from frontend/public/assets/generated/hero-background.dim_1920x1080.png is available as a CSS background option."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with vibrant custom colors (multiple accent colors), modern font families, custom animation utilities, and responsive breakpoints. Add custom transition timing functions for smooth, dynamic feel."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component with responsive navigation, header, footer, and content area. Include smooth page transitions and modern design patterns. Ensure mobile-first responsive design with tablet and desktop breakpoints."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create navigation component with links to Home, Blog, Contact, and Admin Dashboard (admin-only). Include mobile hamburger menu with smooth animations. Use vibrant accent colors for active states and hover effects."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application routes with Layout component to apply consistent design system across all pages."
+        },
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create hero section component for home page with dynamic background using frontend/public/assets/generated/hero-background.dim_1920x1080.png as hero background image. Include engaging animations, vibrant gradient overlays, and modern typography. Position above IntroductionDisplay on home page."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add HeroSection component at the top of home page before IntroductionDisplay to create an engaging entry point with vibrant visuals."
+        }
+      ]
+    }
+  ]
+}
